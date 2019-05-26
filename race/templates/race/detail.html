@@ -1,0 +1,15 @@
+
+<h1>{{driver.name}}</h1>
+<p>Nickname is {{driver.nickname}}.</p>
+<p>{{driver.name}} drives {{driver.car}} at speed {{driver.car.speed}}.</p>
+
+<form action="{% url 'race:detail' driver.id %}" method="post">
+{% csrf_token %}
+  <input type="text" name="name" id="name" value="{{ driver.name }}">
+  <label for="name">Change driver's name</label><br />
+  <input type="text" name="nickname" id="nickname" value="{{ driver.nickname }}">
+  <label for="name">Change driver's nickname</label><br />
+  <input type="submit" value="Save">
+</form>
+
+  

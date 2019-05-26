@@ -1,0 +1,22 @@
+<html>
+  <head>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'race/style.css' %}" />
+  </head>
+  <body>
+  <p>Hello, you are about to start a race!</p>
+  <p>({{extra_message}})</p>
+
+  Here are all the drivers:
+  <ul id="driver-list">
+    {% for driver in drivers%}
+      <li class="{% if forloop.counter|divisibleby:2 %}row-even{%endif%}">
+        <a href="/race/{{driver.id}}/">{{driver}} driving a {{driver.car}}          </a>
+        </li>
+      {%endfor%}
+  </ul>
+  
+  <a href='/race/start'>Race!</a>
+  </body>
+</html>
